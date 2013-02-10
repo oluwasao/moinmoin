@@ -1,0 +1,29 @@
+﻿<Window x:Class="TagApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TagApp" Height="444" Width="971" Icon="img\logo.ico">
+    
+    <Grid>                
+        <TabControl Height="444" HorizontalAlignment="Left" Margin="0,12,0,0" Name="tabControl1" VerticalAlignment="Top" Width="971">
+            <TabItem Header="Create Tags" Name="tabItem1">
+                <Grid Height="365" Width="920">
+
+                    <Label   Content="Keyword" Height="28" HorizontalAlignment="Left" Margin="153,-4,0,0" Name="label1" VerticalAlignment="Top" Width="80" />
+                    <TextBox KeyboardNavigation.TabIndex="0" Height="23" HorizontalAlignment="Left" Margin="153,30,0,0" Name="txtKey" VerticalAlignment="Top" Width="191" />
+                    <Button Content="Generate Tags File" Height="23" HorizontalAlignment="Left" Margin="153,133,0,0" Name="button1" VerticalAlignment="Top" Width="104" Click="button1_Click">
+
+                    </Button>
+                    
+                    <!--<Label Content="Adjective" Height="28" HorizontalAlignment="Left" Margin="75,65,0,0" Name="label2" VerticalAlignment="Top" Width="80" />-->
+                    <!--<TextBox KeyboardNavigation.TabIndex="1" Height="23" HorizontalAlignment="Left" Margin="153,67,0,0" Name="txtAdjective" VerticalAlignment="Top" Width="262" />-->
+                    <Label Content="" Height="133" HorizontalAlignment="Left" Margin="153,193,0,0" Name="lblStatus" VerticalAlignment="Top" Width="754" />
+                    <ComboBox Height="20" HorizontalAlignment="Left" Margin="364,30,0,0" Name="cbxPhrases" VerticalAlignment="Top" Width="120" />
+                    <Button Content="Add To List" Height="23" HorizontalAlignment="Left" Margin="519,29,0,0" Name="btAddToList" VerticalAlignment="Top" Width="75" Click="LoadTextBox" />
+                    <TextBox Height="51" HorizontalAlignment="Left" Margin="153,76,0,0" Name="txtEntry" VerticalAlignment="Top" Width="754" />
+                    <Label Content="Current List" Height="28" HorizontalAlignment="Left" Margin="75,89,0,0" Name="label2" VerticalAlignment="Top" />
+                    <Label Content="Phrases" Height="28" HorizontalAlignment="Left" Margin="364,-4,0,0" Name="label3" VerticalAlignment="Top" Width="80" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
