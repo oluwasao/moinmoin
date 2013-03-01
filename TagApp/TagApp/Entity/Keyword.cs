@@ -30,5 +30,11 @@ namespace TagApp.Entity
         {
             _keyWord = keyword;            
         }
+
+        public Keyword(string keyword, string adjective)
+        {
+            _keyWord = keyword;
+            _adjective = adjective;
+        }
     }
 }

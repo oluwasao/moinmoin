@@ -5,7 +5,7 @@
     
     <Grid>                
         <TabControl Height="444" HorizontalAlignment="Left" Margin="0,12,0,0" Name="tabControl1" VerticalAlignment="Top" Width="971">
-            <TabItem Header="Create Tags" Name="tabItem1">
+            <TabItem Header="Manual" Name="tabItem1">
                 <Grid Height="365" Width="920">
 
                     <Label   Content="Keyword" Height="28" HorizontalAlignment="Left" Margin="153,-4,0,0" Name="label1" VerticalAlignment="Top" Width="80" />
@@ -22,6 +22,20 @@
                     <TextBox Height="51" HorizontalAlignment="Left" Margin="153,76,0,0" Name="txtEntry" VerticalAlignment="Top" Width="754" />
                     <Label Content="Current List" Height="28" HorizontalAlignment="Left" Margin="75,89,0,0" Name="label2" VerticalAlignment="Top" />
                     <Label Content="Phrases" Height="28" HorizontalAlignment="Left" Margin="364,-4,0,0" Name="label3" VerticalAlignment="Top" Width="80" />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Auto" Name="tabItem2">
+                <Grid Height="365" Width="920">
+
+                    <Label   Content="Keyword" Height="28" HorizontalAlignment="Left" Margin="75,25,0,0" Name="alblKeyword" VerticalAlignment="Top" Width="80" />
+                    <TextBox KeyboardNavigation.TabIndex="0" Height="23" HorizontalAlignment="Left" Margin="153,30,0,0" Name="atxtKey" VerticalAlignment="Top" Width="262" />
+                    <Button Content="Generate Tags" Height="23" HorizontalAlignment="Left" Margin="153,96,0,0" Name="abutton1" VerticalAlignment="Top" Width="104" Click="abutton1_Click">
+
+                    </Button>
+                    <Label Content="Adjective" Height="28" HorizontalAlignment="Left" Margin="75,65,0,0" Name="alabel2" VerticalAlignment="Top" Width="80" />
+                    <TextBox KeyboardNavigation.TabIndex="1" Height="23" HorizontalAlignment="Left" Margin="153,67,0,0" Name="atxtAdjective" VerticalAlignment="Top" Width="262" />
+                    <Label Content="" Height="190" HorizontalAlignment="Left" Margin="153,136,0,0" Name="alblStatus" VerticalAlignment="Top" Width="754" />
                 </Grid>
             </TabItem>
         </TabControl>

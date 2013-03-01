@@ -22,30 +22,30 @@ namespace TagApp.Service
             _folderPath = folderPath;
         }
 
-        //public string ReturnZazzleFormat()
-        //{
-        //    StringBuilder  csvBuilder = new StringBuilder();    
-        //    foreach (Entry entry in _entries)
-        //    {
-        //        int count = 1;
-        //        foreach (Tag tag in entry.Tags)
-        //        {
-        //            if (count < entry.Tags.Count)
-        //            {
-        //                csvBuilder.AppendFormat("\"{0} {1}\" ", tag.KeyWord.KeyWord, tag.Category.Name);
-        //                csvBuilder.AppendFormat("\"{0} {1}\" ", tag.KeyWord.Adjective, tag.Category.Name);
-        //            }
-        //            else
-        //            {
-        //                csvBuilder.AppendFormat("\"{0} {1}\" ", tag.KeyWord.KeyWord, tag.Category.Name);
-        //                csvBuilder.AppendFormat("\"{0} {1}\" ", tag.KeyWord.Adjective, tag.Category.Name);
-        //            }
-        //            count ++;
-        //        }
-        //        csvBuilder.Append(Environment.NewLine);
-        //    }
-        //    return csvBuilder.ToString();
-        //}
+        public string ReturnZazzleFormat()
+        {
+            StringBuilder csvBuilder = new StringBuilder();
+            foreach (Entry entry in _entries)
+            {
+                int count = 1;
+                foreach (Tag tag in entry.Tags)
+                {
+                    if (count < entry.Tags.Count)
+                    {
+                        csvBuilder.AppendFormat("\"{0} {1}\" ", tag.KeyWord.KeyWord, tag.Category.Name);
+                        csvBuilder.AppendFormat("\"{0} {1}\" ", tag.KeyWord.Adjective, tag.Category.Name);
+                    }
+                    else
+                    {
+                        csvBuilder.AppendFormat("\"{0} {1}\" ", tag.KeyWord.KeyWord, tag.Category.Name);
+                        csvBuilder.AppendFormat("\"{0} {1}\" ", tag.KeyWord.Adjective, tag.Category.Name);
+                    }
+                    count++;
+                }
+                csvBuilder.Append(Environment.NewLine);
+            }
+            return csvBuilder.ToString();
+        }
 
         public static string ReturnZazzleFormat(string text)
         {
@@ -75,30 +75,30 @@ namespace TagApp.Service
             csvBuilder.Append(Environment.NewLine);
             return csvBuilder.ToString();
         }
-        //public string ReturnCafePressFormat()
-        //{
-        //    StringBuilder csvBuilder = new StringBuilder();
-        //    foreach (Entry entry in _entries)
-        //    {
-        //        int count = 1;
-        //        foreach (Tag tag in entry.Tags)
-        //        {
-        //            if (count < entry.Tags.Count)
-        //            {
-        //                csvBuilder.AppendFormat("{0} {1}, ", tag.KeyWord.KeyWord, tag.Category.Name);
-        //                csvBuilder.AppendFormat("{0} {1}, ", tag.KeyWord.Adjective, tag.Category.Name);
-        //            }
-        //            else
-        //            {
-        //                csvBuilder.AppendFormat("{0} {1}, ", tag.KeyWord.KeyWord, tag.Category.Name);
-        //                csvBuilder.AppendFormat("{0} {1} ", tag.KeyWord.Adjective, tag.Category.Name);
-        //            }
-        //            count++;
-        //        }
-        //        csvBuilder.Append(Environment.NewLine);
-        //    }
-        //    return csvBuilder.ToString();
-        //}
+        public string ReturnCafePressFormat()
+        {
+            StringBuilder csvBuilder = new StringBuilder();
+            foreach (Entry entry in _entries)
+            {
+                int count = 1;
+                foreach (Tag tag in entry.Tags)
+                {
+                    if (count < entry.Tags.Count)
+                    {
+                        csvBuilder.AppendFormat("{0} {1}, ", tag.KeyWord.KeyWord, tag.Category.Name);
+                        csvBuilder.AppendFormat("{0} {1}, ", tag.KeyWord.Adjective, tag.Category.Name);
+                    }
+                    else
+                    {
+                        csvBuilder.AppendFormat("{0} {1}, ", tag.KeyWord.KeyWord, tag.Category.Name);
+                        csvBuilder.AppendFormat("{0} {1} ", tag.KeyWord.Adjective, tag.Category.Name);
+                    }
+                    count++;
+                }
+                csvBuilder.Append(Environment.NewLine);
+            }
+            return csvBuilder.ToString();
+        }
 
     
         public void WriteToCsv(string text)

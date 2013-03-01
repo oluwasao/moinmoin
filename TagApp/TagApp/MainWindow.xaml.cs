@@ -132,6 +132,62 @@ namespace TagApp
 
         //}
 
+        private void abutton1_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string categoryFolder = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+                string categoryPath = string.Format("{0}\\TagApp\\Category.xml",
+                   categoryFolder.Substring(0, categoryFolder.LastIndexOf("s") + 1));
+
+                lblStatus.Content = "";
+                if (!string.IsNullOrEmpty(atxtAdjective.Text) || !string.IsNullOrEmpty(atxtKey.Text))
+                {
+                    if (!Directory.Exists(KeyWordFolderPath))
+                    {
+                        Directory.CreateDirectory(KeyWordFolderPath);
+                        //copy category file there.
+
+                    }
+                    List<Category> categories = Category.LoadCategories(categoryPath);
+                    List<Tag> tags = new List<Tag>();
+                    Keyword key = new Keyword(atxtKey.Text.Trim(), atxtAdjective.Text.Trim());
+                    foreach (Category c in categories)
+                    {
+                        Tag t = new Tag() { Category = c, KeyWord = key };
+                        tags.Add(t);
+                    }
+                    Entry entry = new Entry() { Tags = tags };
+
+                    Service.KeyWordLineWriter cafePressWriter = new KeyWordLineWriter(CafePressFilePath,
+
+                                        new List<Entry>() { entry }, KeyWordFolderPath);
+
+                    Service.KeyWordLineWriter zazzleWriter = new KeyWordLineWriter(ZazzleFilePath,
+
+                                        new List<Entry>() { entry }, KeyWordFolderPath);
+
+                    //write cafe press
+                    string cafePressText = cafePressWriter.ReturnCafePressFormat();
+                    cafePressWriter.WriteToCsv(cafePressText);
+
+                    //write zazzle
+                    string zazzleText = zazzleWriter.ReturnZazzleFormat();
+                    zazzleWriter.WriteToCsv(zazzleText);
+
+                }
+                alblStatus.Content += "Done! files created at" + Environment.NewLine;
+                alblStatus.Content += CafePressFilePath + Environment.NewLine;
+                alblStatus.Content += ZazzleFilePath + Environment.NewLine;
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Content = ex.Message;
+
+            }
+
+        }
+
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             try

@@ -27,7 +27,7 @@ namespace TagApp.Entity
                              select e).FirstOrDefault();
                 Category c = new Category()
                                  {
-                                     Name = xName.Value
+                                     Name = xName.Value.Trim()
                                  };
                 catList.Add(c);
             }
