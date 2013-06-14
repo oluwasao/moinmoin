@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TagApp.Entity;
 using TagApp.Service;
+using System.Net.Mail;
 
 namespace TagApp
 {
@@ -26,18 +27,56 @@ namespace TagApp
     {
         public MainWindow()
         {
-            InitializeComponent();
-            LoadDropDowns();
+            try
+            {
+                InitializeComponent();
+                LoadDropDowns();
+            }
+            catch(Exception ex)
+            {
+                SendException(ex);
+            }
         }
 
+        public void SendException(Exception ex)
+        {
+            string AddressFrom = "lekibaba@gmail.com";
+            string NameFrom = "TagApp";
+            string AddressTo = "lekibaba@gmail.com";
+            string NameTo = "Leke";
+            MailAddress objFrom = new MailAddress(AddressFrom, NameFrom);
+            MailAddress objTo = new MailAddress(AddressTo, NameTo);
+            MailMessage objMessage = new MailMessage(objFrom, objTo);
+            objMessage.Subject = "Tag App";
+
+            StringBuilder builder = new StringBuilder();
+            builder.AppendLine(ex.Message);
+            builder.AppendLine(ex.StackTrace);
+            if (ex.InnerException != null)
+            {
+                builder.AppendLine(ex.InnerException.Message);
+                builder.AppendLine(ex.InnerException.StackTrace);
+            }
+
+
+            objMessage.Body = builder.ToString();
+
+            SmtpClient objSmtpClient = new SmtpClient("smtp.gmail.com");
+            objSmtpClient.Credentials = new System.Net.NetworkCredential("lekibaba@gmail.com", "redrumjordan23");
+            objSmtpClient.EnableSsl = true;
+
+            objSmtpClient.Send(objMessage);
+
+        }
 
         public static readonly string CafePressFilePath = string.Format("{0}\\TagApp\\CafePressTags.csv", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
         public static readonly string ZazzleFilePath = string.Format("{0}\\TagApp\\ZazzleTags.csv", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
         public static readonly string KeyWordFolderPath = string.Format("{0}\\TagApp", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
-
+        string categoryFolder = Environment.GetEnvironmentVariable("PROGRAMFILES(X86)") ?? Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
         private void LoadDropDowns()
         {
-            string categoryFolder = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+
+            
             string categoryPath = string.Format("{0}\\TagApp\\Category.xml",
                categoryFolder.Substring(0, categoryFolder.LastIndexOf("s") + 1));
 
@@ -66,77 +105,15 @@ namespace TagApp
             catch (Exception ex)
             {
                 lblStatus.Content = ex.Message;
-
+                SendException(ex);
             }
 
         }
 
-        /// <summary>
-        /// Loads folder path
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //private void button1_Click(object sender, RoutedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        string categoryFolder = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
-        //        string categoryPath = string.Format("{0}\\TagApp\\Category.xml",
-        //           categoryFolder.Substring(0, categoryFolder.LastIndexOf("s") + 1));
-
-        //        lblStatus.Content = "";
-        //        if (!string.IsNullOrEmpty(txtKey.Text))
-        //        {
-        //            if (!Directory.Exists(KeyWordFolderPath))
-        //            {
-        //                Directory.CreateDirectory(KeyWordFolderPath);
-        //                //copy category file there.
-
-        //            }
-        //            List<Category> categories = Category.LoadCategories(categoryPath);
-        //            List<Tag> tags = new List<Tag>();
-        //            Keyword key = new Keyword(txtKey.Text.Trim());
-        //            foreach (Category c in categories)
-        //            {
-        //                Tag t = new Tag() { Category = c, KeyWord = key };
-        //                tags.Add(t);
-        //            }
-        //            Entry entry = new Entry() { Tags = tags };
-
-        //            Service.KeyWordLineWriter cafePressWriter = new KeyWordLineWriter(CafePressFilePath,
-
-        //                                new List<Entry>() { entry }, KeyWordFolderPath);
-
-        //            Service.KeyWordLineWriter zazzleWriter = new KeyWordLineWriter(ZazzleFilePath,
-
-        //                                new List<Entry>() { entry }, KeyWordFolderPath);
-
-        //            //write cafe press
-        //            string cafePressText = cafePressWriter.ReturnCafePressFormat();
-        //            cafePressWriter.WriteToCsv(cafePressText);
-
-        //            //write zazzle
-        //            string zazzleText = zazzleWriter.ReturnZazzleFormat();
-        //            zazzleWriter.WriteToCsv(zazzleText);
-
-        //        }
-        //        lblStatus.Content += "Done! files created at" + Environment.NewLine;
-        //        lblStatus.Content += CafePressFilePath + Environment.NewLine;
-        //        lblStatus.Content += ZazzleFilePath + Environment.NewLine;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        lblStatus.Content = ex.Message;
-
-        //    }
-
-        //}
-
         private void abutton1_Click(object sender, RoutedEventArgs e)
         {
             try
-            {
-                string categoryFolder = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+            {                
                 string categoryPath = string.Format("{0}\\TagApp\\Category.xml",
                    categoryFolder.Substring(0, categoryFolder.LastIndexOf("s") + 1));
 
@@ -183,7 +160,7 @@ namespace TagApp
             catch (Exception ex)
             {
                 lblStatus.Content = ex.Message;
-
+                SendException(ex);
             }
 
         }
@@ -191,8 +168,7 @@ namespace TagApp
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             try
-            {
-                string categoryFolder = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+            {                
                 string categoryPath = string.Format("{0}\\TagApp\\Category.xml",
                    categoryFolder.Substring(0, categoryFolder.LastIndexOf("s") + 1));
 
@@ -220,7 +196,7 @@ namespace TagApp
             catch (Exception ex)
             {
                 lblStatus.Content = ex.Message;
-
+                SendException(ex);
             }
 
         }
