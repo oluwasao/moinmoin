@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TagApp2._0"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="517.822" Width="1013.117">
     <Grid>
         <TabControl Height="444" HorizontalAlignment="Left" Margin="0,12,0,0" Name="tabControl1" VerticalAlignment="Top" Width="971">
             <TabItem Header="Manual" Name="tabItem1">
