@@ -1,22 +1,40 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagApp", "TagApp\TagApp.csproj", "{E71F2204-F1B3-423E-BF53-B9297F0BB872}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TagAppSetup", "TagAppSetup\TagAppSetup.vdproj", "{15FBD9D8-9FA6-4A90-8F14-8D6AD6D163B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagApp2.0", "TagApp2.0\TagApp2.0.csproj", "{BAC52C8B-4924-4440-97F1-93CFBEEA908A}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupTag2.0", "SetupTag2.0\SetupTag2.0.vdproj", "{C578F668-BD35-4AE9-8023-C57CE21035C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E71F2204-F1B3-423E-BF53-B9297F0BB872}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{E71F2204-F1B3-423E-BF53-B9297F0BB872}.Debug|x86.ActiveCfg = Debug|x86
 		{E71F2204-F1B3-423E-BF53-B9297F0BB872}.Debug|x86.Build.0 = Debug|x86
+		{E71F2204-F1B3-423E-BF53-B9297F0BB872}.Release|Any CPU.ActiveCfg = Release|x86
 		{E71F2204-F1B3-423E-BF53-B9297F0BB872}.Release|x86.ActiveCfg = Release|x86
 		{E71F2204-F1B3-423E-BF53-B9297F0BB872}.Release|x86.Build.0 = Release|x86
-		{15FBD9D8-9FA6-4A90-8F14-8D6AD6D163B4}.Debug|x86.ActiveCfg = Debug
-		{15FBD9D8-9FA6-4A90-8F14-8D6AD6D163B4}.Release|x86.ActiveCfg = Release
+		{BAC52C8B-4924-4440-97F1-93CFBEEA908A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAC52C8B-4924-4440-97F1-93CFBEEA908A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAC52C8B-4924-4440-97F1-93CFBEEA908A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BAC52C8B-4924-4440-97F1-93CFBEEA908A}.Debug|x86.Build.0 = Debug|Any CPU
+		{BAC52C8B-4924-4440-97F1-93CFBEEA908A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAC52C8B-4924-4440-97F1-93CFBEEA908A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAC52C8B-4924-4440-97F1-93CFBEEA908A}.Release|x86.ActiveCfg = Release|Any CPU
+		{BAC52C8B-4924-4440-97F1-93CFBEEA908A}.Release|x86.Build.0 = Release|Any CPU
+		{C578F668-BD35-4AE9-8023-C57CE21035C7}.Debug|Any CPU.ActiveCfg = Debug
+		{C578F668-BD35-4AE9-8023-C57CE21035C7}.Debug|x86.ActiveCfg = Debug
+		{C578F668-BD35-4AE9-8023-C57CE21035C7}.Release|Any CPU.ActiveCfg = Release
+		{C578F668-BD35-4AE9-8023-C57CE21035C7}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
